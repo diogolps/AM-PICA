@@ -1,0 +1,218 @@
+@font-face {
+    font-family: "Lexend-Regular";
+    src: local("Lexend-Regular"),
+     url("../font/Lexend-Regular.ttf") format("truetype");
+   }
+
+@font-face {
+    font-family: "SangBleuEmpire-Medium";
+    src: local("SangBleuEmpire-Medium"),
+     url("../font/SangBleuEmpire-Medium.otf") format("truetype");
+   }
+
+@font-face {
+    font-family: "SangBleuEmpire-Regular";
+    src: local("SangBleuEmpire-Regular"),
+     url("../font/SangBleuEmpire-Regular.otf") format("truetype");
+   }
+
+.logout{
+    text-align: right;
+}
+
+.logoutButton{
+  top: 35%;
+  position: relative;
+  background-color: white;
+  border:0;
+  font-family: 'SangBleuEmpire-Regular';
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+.containerAdminPage{
+    background-image: url("../Imagens/admin-page.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 300vh;
+    color: white;
+    background-attachment: fixed;
+    
+}
+
+.titulos{
+    padding-top: 2%;
+}
+
+h2{
+    font-size: 40px;
+    font-weight: 100;
+    font-family: 'SangBleuEmpire-Medium';
+}
+
+.css-13cymwt-control{
+    border-radius: 0px!important;
+    font-family: 'SangBleuEmpire-Regular';
+    padding-left: 10px;
+    width:95%;
+}
+
+.css-1fdsijx-ValueContainer{
+    color: #4c3c2d!important;
+    font-family: 'SangBleuEmpire-Regular'!important;
+    font-size: 22px;   
+    cursor: pointer;
+}
+
+
+.css-t3ipsp-control {
+    padding-left: 10px;
+    border-color: #4c3c2d!important;
+    cursor: pointer;
+
+}
+
+.css-t3ipsp-control:active {
+    outline-color: none;
+    border-color: #4c3c2d!important;
+    cursor: pointer;
+
+}
+
+.css-1jqq78o-placeholder {
+    color: #4c3c2d!important;
+    font-family: 'SangBleuEmpire-Regular'!important;
+    cursor: pointer;
+  
+}  
+
+.css-qbdosj-Input{
+    color: #4c3c2d!important;
+    font-family: 'SangBleuEmpire-Regular'!important;
+    cursor: pointer;
+ 
+}
+
+
+.css-1nmdiq5-menu{
+    color: #4c3c2d!important;
+    font-family: 'SangBleuEmpire-Regular'!important;
+    font-size: 22px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.containerDatas{
+    padding-top: 2%;
+}
+
+.react-datepicker__input-container input {
+    border-radius: 0px!important;
+    text-align: center;
+    padding-left: 0px;
+    width: 60%;
+    font-size: 22px;
+    font-family: 'Lexend-Regular';
+    cursor: pointer;
+}
+
+.data1{
+    text-align: right;
+    padding-right: 1%;
+}
+
+.data2 {
+ text-align: left;
+ padding-left: 1%;
+}
+
+.pesquisa{
+    padding-top: 2%;
+text-align: center;
+}
+
+.botaoPesquisa {
+    top: 35%;
+    position: relative;
+    background-color: white;
+    border:0;
+    font-family: 'SangBleuEmpire-Regular';
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.download {
+    padding-top: 2%;
+    text-align: center;
+}
+
+.linkDownload {
+    color: white;
+    font-family: 'SangBleuEmpire-Regular';
+    font-size: 14px;
+}
+
+.tabela{
+    text-align: center;
+    background-color: #4c3c2d;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top:1%;
+    padding-bottom: 1%;
+    width: 100%;
+}
+
+.tabela th{
+    font-family: 'SangBleuEmpire-Regular';
+    font-weight: 100;
+}
+
+.data div{
+    font-family: 'Lexend-Regular';
+    background-color: #796d62;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.horas div{
+    font-family: 'Lexend-Regular';
+    background-color: #796d62;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+   
+}
+
+.data{
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 10%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.horas{
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 10%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+
+h4{
+    font-family: 'SangBleuEmpire-Regular';
+    font-weight: 100!important;
+    font-size: 20px;
+}

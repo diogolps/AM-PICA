@@ -1,25 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import LoginPage from "./pages/LoginPage";
+import UserPage from "./pages/UserPage";
+import AdminPage from "./pages/AdminPage";
+import { auth, firestore } from "./firebase";
+import RegisterPage from "./pages/RegisterPage";
 
-function App() {
+const App = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const { email } = user;
+        const adminEmail = "admin@admin.pt";
+
+        setIsAdmin(email === adminEmail);
+        setLoggedIn(true);
+      } else {
+        setIsAdmin(false);
+        setLoggedIn(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <ToastContainer />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              loggedIn ? (
+                isAdmin ? (
+                  <Navigate to="/admin" replace />
+                ) : (
+                  <Navigate to="/user" replace />
+                )
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
+          <Route
+            path="/login"
+            element={<LoginPage setLoggedIn={setLoggedIn} />}
+          />
+          <Route
+            path="/user"
+            element={<UserPage setLoggedIn={setLoggedIn} />}
+          />
+          <Route
+            path="/admin"
+            element={<AdminPage setLoggedIn={setLoggedIn} />}
+          />
+          <Route path="/registo" element={<RegisterPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
