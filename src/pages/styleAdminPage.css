@@ -26,6 +26,7 @@
   background-color: white;
   border:0;
   font-family: 'SangBleuEmpire-Regular';
+  font-weight: 600;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 5px;
@@ -41,7 +42,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 300vh;
+    min-height: 100vh;
     color: white;
     background-attachment: fixed;
     
@@ -144,6 +145,7 @@ text-align: center;
     background-color: white;
     border:0;
     font-family: 'SangBleuEmpire-Regular';
+    font-weight: 600;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 5px;
@@ -160,6 +162,7 @@ text-align: center;
 .linkDownload {
     color: white;
     font-family: 'SangBleuEmpire-Regular';
+    font-weight: 600;
     font-size: 14px;
 }
 
@@ -200,7 +203,7 @@ text-align: center;
     padding-right: 2%;
     width: 10%;
     padding-top: 1%;
-    padding-bottom: 1%;
+    padding-bottom: 2%;
 }
 
 .horas{

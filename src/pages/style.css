@@ -27,6 +27,7 @@
     
 }
 
+
 .botaologin{
     color: #4c3c2d;
     border: none;
@@ -40,6 +41,7 @@
     font-weight:600;
     cursor: pointer;
     font-family: 'SangBleuEmpire-Regular';
+    font-weight: 600;
    
 }
 
@@ -56,6 +58,8 @@
     font-weight:600;
     cursor: pointer;
     font-family: 'SangBleuEmpire-Regular';
+    font-weight: 600;
+   
    
 }
 
@@ -66,6 +70,7 @@
     font-size: 15px;
     cursor: pointer;
     font-family: 'SangBleuEmpire-Regular';
+ 
    
 }
 

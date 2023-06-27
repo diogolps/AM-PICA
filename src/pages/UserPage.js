@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { auth, firestore } from "../firebase";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, useTheme, useMediaQuery } from "@mui/material";
 import "./styleUserPage.css";
 
 const UserPage = ({ setLoggedIn }) => {
   const [userName, setUserName] = useState("");
   const [userRecords, setUserRecords] = useState([]);
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -141,97 +143,218 @@ const UserPage = ({ setLoggedIn }) => {
 
   return (
     <div className="containerUserPage">
-      <Container maxWidth="xl">
-        <Grid container className="titulos">
-          <Grid item xs={6}>
-            <h2>Bem-vindo(a), {userName}!</h2>
+      {isMobile && (
+        <Container maxWidth="xl" className="mobile">
+          <Grid container className="titulosMobile">
+            <Grid item xs={8}>
+              <h2>Bem-vindo(a), {userName}!</h2>
+            </Grid>
+            <Grid item xs={4} className="logoutMobile">
+              <button onClick={handleLogout} className="logoutButtonMobile">
+                Logout
+              </button>
+            </Grid>
           </Grid>
-          <Grid item xs={6} className="logout">
-            <button onClick={handleLogout} className="logoutButton">
-              Logout
-            </button>
+          <Grid container className="containerBotoes">
+            <Grid item xs={12} className="containerBotoesMobile">
+              <Grid container justifyContent="center">
+                <Grid item className="botoesUserPageMobile">
+                  <button
+                    onClick={() => handleButtonClick("Entrada")}
+                    className="botoesRegistarMobile"
+                  >
+                    Entrada
+                  </button>
+                </Grid>
+                <Grid item className="botoesUserPageMobile">
+                  <button
+                    onClick={() => handleButtonClick("Entrada Almoço")}
+                    className="botoesRegistarMobile"
+                  >
+                    Entrada Almoço
+                  </button>
+                </Grid>
+              </Grid>
+              <Grid container justifyContent="center">
+                <Grid item className="botoesUserPageMobile">
+                  <button
+                    onClick={() => handleButtonClick("Saída Almoço")}
+                    className="botoesRegistarMobile"
+                  >
+                    Saída Almoço
+                  </button>
+                </Grid>
+                <Grid item className="botoesUserPageMobile">
+                  <button
+                    onClick={() => handleButtonClick("Saída")}
+                    className="botoesRegistarMobile"
+                  >
+                    Saída
+                  </button>
+                </Grid>
+              </Grid>
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid container className="containerBotoes">
-          <Grid item xs={2}></Grid>
-          <Grid item xs={8} className="botoesUserPage">
-            <button
-              onClick={() => handleButtonClick("Entrada")}
-              className="botoesRegistar"
-            >
-              Entrada
-            </button>
-            <button
-              onClick={() => handleButtonClick("Saída Almoço")}
-              className="botoesRegistar"
-            >
-              Saída Almoço
-            </button>
-            <button
-              onClick={() => handleButtonClick("Entrada Almoço")}
-              className="botoesRegistar"
-            >
-              Entrada Almoço
-            </button>
-            <button
-              onClick={() => handleButtonClick("Saída")}
-              className="botoesRegistar"
-            >
-              Saída
-            </button>
+          <h3>Registos:</h3>
+          <Grid container className="containerTabela">
+            <Grid item xs={12}>
+              <table className="tabelaMobile">
+                <tbody>
+                  <tr className="horasregistoTRMobile">
+                    <td>
+                      <div className="horasRegistoMobileTitulo">
+                        <div className="textoRegisto">Entrada:</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="horasRegistoMobile">
+                        <div className="horasRegisto2Mobile">
+                          {getHourForType("Entrada")}
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="horasRegistoMobileTitulo">
+                    <td>
+                      <div className="horasRegistoMobileTitulo">
+                        <div className="textoRegisto">Saída Almoço:</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="horasRegistoMobile">
+                        <div className="horasRegisto2Mobile">
+                          {getHourForType("Saída Almoço")}
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="horasregistoTRMobile">
+                    <td>
+                      <div className="horasRegistoMobileTitulo">
+                        <div className="textoRegisto">Entrada Almoço:</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="horasRegistoMobile">
+                        <div className="horasRegisto2Mobile">
+                          {getHourForType("Entrada Almoço")}
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="horasregistoTRMobile">
+                    <td>
+                      <div className="horasRegistoMobileTitulo">
+                        <div className="textoRegisto">Saída:</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="horasRegistoMobile">
+                        <div className="horasRegisto2Mobile">
+                          {getHourForType("Saída")}
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </Grid>
           </Grid>
-          <Grid item xs={2}></Grid>
-        </Grid>
-        <h3>Registos:</h3>
-        <Grid container className="containerTabela">
-          <Grid item xs={2}></Grid>
-          <Grid item xs={8}>
-            <table className="tabela">
-              <thead>
-                <tr>
-                  <th>Entrada</th>
-                  <th>Saída Almoço</th>
-                  <th>Entrada Almoço</th>
-                  <th>Saída</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="horasregistoTR">
-                  <td>
-                    <div className="horasRegisto">
-                      <div className="horasRegisto2">
-                        {getHourForType("Entrada")}
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="horasRegisto">
-                      <div className="horasRegisto2">
-                        {getHourForType("Saída Almoço")}
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="horasRegisto">
-                      <div className="horasRegisto2">
-                        {getHourForType("Entrada Almoço")}
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="horasRegisto">
-                      <div className="horasRegisto2">
-                        {getHourForType("Saída")}
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        </Container>
+      )}
+      {!isMobile && (
+        <Container maxWidth="xl">
+          <Grid container className="titulos">
+            <Grid item xs={6}>
+              <h2>Bem-vindo(a), {userName}!</h2>
+            </Grid>
+            <Grid item xs={6} className="logout">
+              <button onClick={handleLogout} className="logoutButton">
+                Logout
+              </button>
+            </Grid>
           </Grid>
-          <Grid item xs={2}></Grid>
-        </Grid>
-      </Container>
+          <Grid container className="containerBotoes">
+            <Grid item xs={2}></Grid>
+            <Grid item xs={8} className="botoesUserPage">
+              <button
+                onClick={() => handleButtonClick("Entrada")}
+                className="botoesRegistar"
+              >
+                Entrada
+              </button>
+              <button
+                onClick={() => handleButtonClick("Saída Almoço")}
+                className="botoesRegistar"
+              >
+                Saída Almoço
+              </button>
+              <button
+                onClick={() => handleButtonClick("Entrada Almoço")}
+                className="botoesRegistar"
+              >
+                Entrada Almoço
+              </button>
+              <button
+                onClick={() => handleButtonClick("Saída")}
+                className="botoesRegistar"
+              >
+                Saída
+              </button>
+            </Grid>
+            <Grid item xs={2}></Grid>
+          </Grid>
+          <h3>Registos:</h3>
+          <Grid container className="containerTabela">
+            <Grid item xs={2}></Grid>
+            <Grid item xs={8}>
+              <table className="tabela">
+                <thead>
+                  <tr>
+                    <th>Entrada</th>
+                    <th>Saída Almoço</th>
+                    <th>Entrada Almoço</th>
+                    <th>Saída</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="horasregistoTR">
+                    <td>
+                      <div className="horasRegisto">
+                        <div className="horasRegisto2">
+                          {getHourForType("Entrada")}
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="horasRegisto">
+                        <div className="horasRegisto2">
+                          {getHourForType("Saída Almoço")}
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="horasRegisto">
+                        <div className="horasRegisto2">
+                          {getHourForType("Entrada Almoço")}
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="horasRegisto">
+                        <div className="horasRegisto2">
+                          {getHourForType("Saída")}
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </Grid>
+            <Grid item xs={2}></Grid>
+          </Grid>
+        </Container>
+      )}
     </div>
   );
 };

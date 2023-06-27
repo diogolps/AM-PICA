@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth, firestore } from "../firebase";
-import { Grid } from "@mui/material";
+import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import "./style.css";
 import Input from "../components/Input";
@@ -12,6 +12,8 @@ import Input from "../components/Input";
 const LoginPage = ({ setLoggedIn }) => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const onSubmit = async (data) => {
     try {
@@ -45,10 +47,11 @@ const LoginPage = ({ setLoggedIn }) => {
   return (
     <div style={{ height: "100vh" }} className="container">
       <Grid container style={{ height: "100%" }} className="background">
-        <Grid item xs={9}></Grid>
+        {!isMobile && <Grid item xs={9}></Grid>}
         <Grid
           item
-          xs={3}
+          xs={12}
+          sm={isMobile ? 12 : 3}
           sx={{ backgroundColor: "#4c3c2d" }}
           className="containerlogin"
         >

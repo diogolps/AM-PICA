@@ -9,7 +9,6 @@
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 18px;
-
 }
 
 .logout{
@@ -42,6 +41,7 @@ h2{
 .botoesUserPage{
     text-align: center;
     padding-top: 5%;
+    font-weight: 600;
  
     
 }
@@ -87,7 +87,7 @@ h3{
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 1%;
-    padding-bottom: 2%;
+    padding-bottom: 5%;
 }
 
 .horasregistoTR td{
@@ -95,3 +95,114 @@ h3{
     width: 10%;
 }
 
+/*Mobile*/
+
+.titulosMobile h2{
+ font-size: 20px;
+ padding-top: 20%;
+}
+
+.logoutButtonMobile{
+    top: 55%;
+    position: relative;
+    background-color: white;
+    border:0;
+    font-family: 'SangBleuEmpire-Regular';
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 15px;
+    line-height: 0px;
+}
+
+
+.logoutMobile{
+    text-align: right;
+}
+
+.botoesUserPageMobile{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+.botoesUserPageMobile2{
+    padding-right: 0%!important;
+    padding-bottom: 5%;
+    }
+    
+
+.containerBotoesMobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+ 
+}
+
+
+.botoesRegistarMobile{
+    width:170px; /* Set a fixed width for the buttons */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'SangBleuEmpire-Regular';
+    background-color: white;
+    font-size: 16px;
+    border:0;
+}
+
+
+.mobile h3 {
+    font-size: 20px ;
+    padding-top: 5%;
+}
+
+.tabelaMobile{
+    background-color: #4c3c2d;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top:3%;
+    padding-bottom: 5%;
+    width: 100%;
+    font-size: 18px;
+}
+
+.tabelaMobile td{
+    padding-top: 5%;
+    font-family: 'SangBleuEmpire-Regular';
+}
+
+.horasregistoTRMobile {
+    text-align: left;
+    width: 10%;
+}
+
+.horasRegistoMobile{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.horasRegisto2Mobile{
+    font-family: 'Lexend-Regular'!important;
+    width: 100%;
+    background-color: #796d62;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    padding-right: 15%;
+    padding-left:15%;
+    margin-left: -25%;
+    line-height: 0.7%;
+}
+
+.horasRegistoMobileTitulo{
+    padding-left: 2%;
+ 
+}
